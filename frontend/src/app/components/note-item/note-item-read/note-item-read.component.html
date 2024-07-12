@@ -1,0 +1,22 @@
+<p-card [header]="note.title">
+  <p class="m-0">{{ note.content }}</p>
+  <ng-template pTemplate="footer">
+    <div class="footer-action-icons">
+      <span class="p-text-secondary note-action-btns" (click)="onEdit()"
+        >Edit</span
+      >
+      <span class="p-text-secondary note-action-btns" (click)="onDelete()"
+        >Delete</span
+      >
+      @if(!note.isArchived) {
+      <span class="p-text-secondary note-action-btns" (click)="onArchive()"
+        >Archive</span
+      >
+      } @else {
+      <span class="p-text-secondary note-action-btns" (click)="onUnarchive()"
+        >Unarchive</span
+      >
+      }
+    </div>
+  </ng-template>
+</p-card>

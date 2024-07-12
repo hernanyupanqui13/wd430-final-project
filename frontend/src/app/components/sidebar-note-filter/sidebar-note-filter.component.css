@@ -1,0 +1,13 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.p-listbox-item {
+    cursor: pointer;
+}
+
+.pi {
+    margin-right: 0.5rem;
+}

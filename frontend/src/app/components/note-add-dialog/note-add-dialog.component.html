@@ -1,0 +1,13 @@
+<p-button (click)="showDialog()" label="+ Add Note" />
+<p-dialog
+  header="Creating a new note"
+  [(visible)]="visible"
+  [modal]="true"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"   
+  [resizable]="false"
+>
+  <!-- <app-note-item-edit [note]="note" (finishEdit)="onFinishEdit()" editMode="create"></app-note-item-edit> -->
+</p-dialog>
+

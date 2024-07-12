@@ -1,0 +1,22 @@
+<p-button
+  type="button"
+  class="mr-2"
+  (click)="sidebarVisible = true"
+  icon="pi pi-bars"
+/>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right">
+  <h3>Options</h3>
+  <div class="p-listbox">
+    <ul class="p-listbox-list">
+      <li class="p-listbox-item" (click)="onFilterNotes()">
+        <i class="pi pi-pen-to-square"></i>
+        <span class="font-medium">Notes</span>
+      </li>
+      <li class="p-listbox-item" (click)="onFilterArchived()">
+        <i class="pi pi-folder"></i>
+        <span class="font-medium">Archived</span>
+      </li>
+    </ul>
+  </div>
+</p-sidebar>

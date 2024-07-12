@@ -1,0 +1,18 @@
+<p-card>
+  <input type="text" placeholder="Title" pInputText [(ngModel)]="editableNote.title" class="title-input" />
+  <p-divider type="solid" />
+  <div>
+    <textarea
+      [(ngModel)]="editableNote.content"
+      pInputTextarea
+      [autoResize]="true"
+      class="content-input"
+      id="content-input"
+      placeholder="Content..."
+    ></textarea>
+  </div>
+  <div class="button-container">
+    <p-button label="Save" (click)="onSave()"/>
+    <p-button label="Cancel" severity="secondary" (click)="onCancel()" />
+  </div>
+</p-card>

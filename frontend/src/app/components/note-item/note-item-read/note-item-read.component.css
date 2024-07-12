@@ -1,0 +1,8 @@
+.note-action-btns {
+    cursor: pointer;
+}
+
+.footer-action-icons {
+    display: flex;
+    gap: 1rem;
+}
