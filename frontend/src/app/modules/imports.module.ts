@@ -35,6 +35,7 @@ import { SidebarModule } from "primeng/sidebar";
     PanelModule,
     MenuModule,
     SidebarModule,
+
   ],
   providers: [],
 })

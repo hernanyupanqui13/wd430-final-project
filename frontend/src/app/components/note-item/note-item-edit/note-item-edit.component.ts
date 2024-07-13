@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteModel } from '../../../models/note.model';
-import { NoteHttpService } from '../../../services/noteHttp.service';
 import { NoteService } from '../../../services/note.service';
+import { ImportsModule } from '../../../modules/imports.module';
 
 @Component({
   selector: 'app-note-item-edit',
+  standalone: true,
   templateUrl: './note-item-edit.component.html',
   styleUrl: './note-item-edit.component.css',
+  imports: [ImportsModule]
 })
 export class NoteItemEditComponent implements OnInit {
   @Input()
