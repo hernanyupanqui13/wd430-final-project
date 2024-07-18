@@ -34,6 +34,8 @@ export class NoteService {
       const index = notesList.findIndex((n) => n._id === note._id);
 
       if (index !== -1) {
+        console.log("from here")
+
         this.noteHttpService.delete(note._id!).subscribe({
           next: () => {
             console.log('Note deleted');
@@ -55,12 +57,13 @@ export class NoteService {
   public create(note: NoteModel): Promise<NoteModel> {
     return new Promise<NoteModel>((resolve, reject) => {
       this.noteHttpService.create(note).subscribe({
-        next: (createdNote) => {
+        next: (res) => {
+          console.log("creating");
           const notesList = this.notesSubject.getValue();
-          notesList.unshift(createdNote); //Adding at the begining of the array
+          notesList.unshift(res.createdNote); //Adding at the begining of the array
           const notesListClone = notesList.slice();
           this.notesSubject.next(notesListClone);
-          resolve(createdNote);
+          resolve(res.createdNote);
         },
         error: (error) => {
           console.error('Error creating note:', error);

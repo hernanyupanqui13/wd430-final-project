@@ -19,12 +19,13 @@ router.get("/", async function (req, res) {
 
 router.post("/", validateEmptyBody, async (req, res) => {
 
-  const newNote = new Note(req.body);
+  const createdNote = new Note(req.body);
 
-  await newNote.save();
+  await createdNote.save();
 
   res.status(200).json({
-    msg: "Success"
+    msg: "Success",
+    createdNote: createdNote
   });
 
 });
