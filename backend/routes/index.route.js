@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const notesRoutes = require("./note.route")
 
-router.get('/', function(req, res, next) {
-  res.json({ title: 'Express' });
-});
+router.use('/notes', notesRoutes);
 
 module.exports = router;
