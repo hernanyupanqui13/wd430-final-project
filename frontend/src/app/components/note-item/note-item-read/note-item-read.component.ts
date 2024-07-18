@@ -2,11 +2,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NoteModel } from '../../../models/note.model';
 import { NoteHttpService } from '../../../services/noteHttp.service';
 import { NoteService } from '../../../services/note.service';
+import { ImportsModule } from '../../../modules/imports.module';
 
 @Component({
   selector: 'app-note-item-read',
+  standalone: true,
   templateUrl: './note-item-read.component.html',
-  styleUrl: './note-item-read.component.css'
+  styleUrl: './note-item-read.component.css',
+  imports: [ImportsModule]
 })
 export class NoteItemReadComponent {
   @Input()

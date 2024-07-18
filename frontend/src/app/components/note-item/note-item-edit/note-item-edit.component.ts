@@ -36,6 +36,7 @@ export class NoteItemEditComponent implements OnInit {
       this.updateNote(this.editableNote);
     }
 
+    // Reseting the inputs
     this.editableNote = new NoteModel('', '');
   }
 

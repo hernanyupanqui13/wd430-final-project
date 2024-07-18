@@ -31,10 +31,10 @@ export class NoteService {
     // This resolves or rejects the promise when all the delete process finished
     return new Promise<void>((resolve, reject) => {
       const notesList = this.notesSubject.getValue();
-      const index = notesList.findIndex((n) => n.id === note.id);
+      const index = notesList.findIndex((n) => n._id === note._id);
 
       if (index !== -1) {
-        this.noteHttpService.delete(note.id!).subscribe({
+        this.noteHttpService.delete(note._id!).subscribe({
           next: () => {
             console.log('Note deleted');
             notesList.splice(index, 1);
@@ -47,7 +47,7 @@ export class NoteService {
           },
         });
       } else {
-        reject(new Error(`Note with id ${note.id} not found`));
+        reject(new Error(`Note with id ${note._id} not found`));
       }
     });
   }
@@ -73,16 +73,16 @@ export class NoteService {
   public update(note: NoteModel): Promise<NoteModel> {
     return new Promise<NoteModel>((resolve, reject) => {
       this.noteHttpService.update(note).subscribe({
-        next: (updatedNote) => {
+        next: (srvResponse) => {
           const notesList = this.notesSubject.getValue();
-          const index = notesList.findIndex((n) => n.id === updatedNote.id);
+          const index = notesList.findIndex((n) => n._id === srvResponse.updatedNote._id);
           if (index !== -1) {
-            notesList[index] = structuredClone(updatedNote);
+            notesList[index] = structuredClone(srvResponse.updatedNote);
             const notesListClone = notesList.slice();
             this.notesSubject.next(notesListClone);
-            resolve(updatedNote);
+            resolve(srvResponse.updatedNote);
           } else {
-            reject(new Error(`Note with id ${note.id} not found`));
+            reject(new Error(`Note with id ${note._id} not found`));
           }
         },
       });

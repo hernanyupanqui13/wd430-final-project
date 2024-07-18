@@ -1,5 +1,9 @@
-<!-- @if(edit) {
-    <app-note-item-edit [note] = "note" (finishEdit)="onFinishEdit($event)" editMode="update"></app-note-item-edit>
+@if(edit) {
+<app-note-item-edit
+  [note]="note"
+  (finishEdit)="onFinishEdit($event)"
+  editMode="update"
+></app-note-item-edit>
 } @else {
-    <app-note-item-read [note] = "note" (editEvent)="onEdit()"></app-note-item-read>
-} -->
+<app-note-item-read [note]="note" (editEvent)="onEdit()"></app-note-item-read>
+}
